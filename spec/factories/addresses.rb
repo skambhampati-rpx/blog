@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :address do
-    street "MyString"
-    city "MyString"
-    zipcode 1
-    country "MyString"
-    user_id 1
+    street "Maduranagar"
+    city "Hyderabad"
+    zipcode 540003
+    country "India"
+    user
   end
 end

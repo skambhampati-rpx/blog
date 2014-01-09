@@ -20,12 +20,30 @@ describe Order do
       expect(order.discount).to eq(0)
     end
     
-     it "generates 10% discount if price greater than 3000 and lessthan 4500" do
+    it "generates 10% discount if price greater than 3000 and lessthan 4500" do
       order = FactoryGirl.build(:order, :price => 3500)
       order.generate_discount
       expect(order.discount).to eq(350)
     end
     
+  end
+  
+  context "#get_user_orders" do
+    context "if user is having fullname" do
+      it "should return good" do
+        user = stub("Test")
+        user.stub(:full_name).and_return(:true)
+        Order.get_user_orders(user).should == "good"
+      end
+      it "should return very good" do
+        user = mock("Test")
+        user.should_receive(:full_name).exactly(5).and_return(:true)
+        Order.get_user_orders(user).should == "good"
+      end
+    end
+    context "if the user does not have full name" do
+      
+    end
   end
   
 end

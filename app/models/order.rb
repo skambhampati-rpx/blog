@@ -6,6 +6,19 @@ class Order < ActiveRecord::Base
   validate :price_should_be_greater_than_discount
   
   
+  def self.get_user_orders(user)
+    user.full_name
+    user.full_name
+    user.full_name
+    user.full_name
+    if user.full_name
+      "good"
+    else
+      "bad"
+    end
+  end
+  
+  
   def generate_discount
     if self.price < 3000
       self.discount = 0   
